@@ -7,7 +7,9 @@ RUN apt-get update && apt-get install -y \
     telnet \
     dnsutils \
     awscli \
-    && rm -rf /var/lib/apt/lists/*
+    && apt-get upgrade -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --upgrade pip
 
 COPY requirements.txt .
 COPY normal_events_producer.py .
